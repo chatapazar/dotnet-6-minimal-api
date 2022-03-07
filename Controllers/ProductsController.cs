@@ -8,9 +8,6 @@ using WebApi.Entities;
 [Route("[controller]")]
 public class ProductsController : ControllerBase
 {
-    private readonly ILogger _logger;
-    
-    public string ? Message { get; set; }
     
     private List<Product> _products = new List<Product>
     {
@@ -21,8 +18,7 @@ public class ProductsController : ControllerBase
     [HttpGet]
     public IActionResult GetAll()
     {
-        Message = $"About page visited at {DateTime.UtcNow.ToLongTimeString()}";
-        _logger.LogInformation(Message);
+        Console.WriteLine("(D) Long date:. . . . . . . . {0:D}\n", DateTime.Now);
         return Ok(_products);
     }
 
